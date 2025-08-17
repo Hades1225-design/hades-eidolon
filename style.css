@@ -1,0 +1,58 @@
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #0A0A0A, #1C1C1C, #2C2C2C, #0A0A0A);
+    background-size: 400% 400%;
+    animation: gradientShift 20s ease infinite;
+    color: #C0C0C0;
+    font-family: "PingFang TC", "Noto Sans TC", sans-serif;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+header {
+    padding: 20px;
+}
+
+header img {
+    max-width: 400px;   /* 放大 Logo */
+}
+
+nav {
+    margin-top: 20px;
+}
+
+nav a {
+    color: silver;
+    margin: 0 15px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #ffffff;
+}
+
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    padding: 20px;
+}
+
+footer {
+    padding: 10px;
+    font-size: 0.9em;
+    color: #555;
+}
