@@ -107,3 +107,23 @@ footer:hover {
         font-size: 1em;
     }
 }
+
+/* About Page */
+.about-content {
+    max-width: 800px;
+    margin: 50px auto;
+    text-align: left;
+    line-height: 1.8;
+    padding: 0 20px;
+}
+
+.about-content h2 {
+    color: silver;
+    margin-top: 30px;
+    text-shadow: 0 0 8px rgba(192,192,192,0.5);
+}
+
+.about-content p {
+    color: #bbb;
+    margin-top: 10px;
+}
