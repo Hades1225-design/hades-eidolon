@@ -44,10 +44,15 @@ body {
     height: var(--size, 6px);
     background: rgba(255, 255, 255, 0.7);
     border-radius: 50%;
-    animation: 
-        floatUp var(--rise, 10s) linear infinite,
-        sway var(--sway, 5s) ease-in-out infinite,
-        flicker var(--flicker, 3s) ease-in-out infinite;
+    animation: flicker var(--flicker, 3s) ease-in-out infinite;
+}
+
+.float {
+    animation: floatUp var(--rise, 12s) linear infinite;
+}
+
+.sway {
+    animation: sway var(--sway, 6s) ease-in-out infinite alternate;
 }
 
 @keyframes floatUp {
@@ -56,9 +61,8 @@ body {
 }
 
 @keyframes sway {
-    0%   { transform: translateX(0); }
-    50%  { transform: translateX(15px); }
-    100% { transform: translateX(0); }
+    from { transform: translateX(-15px); }
+    to   { transform: translateX(15px); }
 }
 
 @keyframes flicker {
