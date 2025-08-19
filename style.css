@@ -1,3 +1,4 @@
+/* 全域設定 */
 body {
     margin: 0;
     background: linear-gradient(135deg, #0A0A0A, #1C1C1C, #2C2C2C, #0A0A0A);
@@ -10,8 +11,6 @@ body {
     flex-direction: column;
     align-items: center;
     min-height: 100vh;
-    position: relative;
-    overflow: hidden;
 }
 
 @keyframes gradientShift {
@@ -20,60 +19,14 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* 光點背景容器 */
-.bg {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    overflow: hidden;
-    z-index: 0;
-}
-
-/* 光點 */
-.dot {
-    position: absolute;
-    border-radius: 50%;
-    animation: float 15s linear infinite;
-    opacity: 0.4;
-    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
-}
-
-/* 光暈顏色變化 */
-.dot:nth-child(3n) {
-    background: radial-gradient(circle, rgba(180,200,255,0.9) 0%, rgba(180,200,255,0) 70%); /* 銀藍 */
-}
-.dot:nth-child(5n) {
-    background: radial-gradient(circle, rgba(200,180,255,0.9) 0%, rgba(200,180,255,0) 70%); /* 銀紫 */
-}
-.dot:nth-child(7n) {
-    background: radial-gradient(circle, rgba(255,220,200,0.8) 0%, rgba(255,220,200,0) 70%); /* 微暖光 */
-}
-
-/* 光點大小隨機 */
-.dot:nth-child(1n) { width: 2px; height: 2px; }
-.dot:nth-child(2n) { width: 3px; height: 3px; }
-.dot:nth-child(3n) { width: 4px; height: 4px; }
-.dot:nth-child(4n) { width: 5px; height: 5px; }
-
-/* 光點透明度 */
-.dot:nth-child(odd) { opacity: 0.3; }
-.dot:nth-child(even) { opacity: 0.6; }
-
-/* 飄浮動畫：上下 + 左右漂移 */
-@keyframes float {
-    0%   { transform: translateY(100vh) translateX(0); opacity: 0.8; }
-    50%  { transform: translateY(50vh) translateX(-20px); opacity: 0.5; }
-    100% { transform: translateY(-10vh) translateX(20px); opacity: 0; }
-}
-
 /* Header */
 header {
     padding: 20px;
-    z-index: 1;
-    position: relative;
 }
 
 header img {
-    max-width: 800px;
+    max-width: 400px;
+    width: 100%;
 }
 
 nav {
@@ -85,23 +38,33 @@ nav a {
     margin: 0 15px;
     text-decoration: none;
     font-size: 1.2em;
-    transition: color 0.3s;
+    transition: color 0.3s, text-shadow 0.3s;
 }
 
 nav a:hover {
     color: #ffffff;
+    text-shadow: 0 0 8px rgba(192, 192, 192, 0.8),
+                 0 0 12px rgba(255, 255, 255, 0.6);
 }
 
-/* Main */
-main {
-    flex: 1;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5em;
-    padding: 20px;
-    z-index: 1;
-    position: relative;
+/* Hero 區塊 */
+.hero {
+    text-align: center;
+    margin-top: 12vh;
+    animation: fadeIn 2s ease-in-out;
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    color: silver;
+    text-shadow: 0 0 10px rgba(192,192,192,0.6);
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-top: 15px;
+    color: #aaa;
+    letter-spacing: 2px;
 }
 
 /* Footer */
@@ -109,6 +72,38 @@ footer {
     padding: 10px;
     font-size: 0.9em;
     color: #555;
-    z-index: 1;
-    position: relative;
+    transition: text-shadow 0.3s;
+}
+
+footer:hover {
+    color: #888;
+    text-shadow: 0 0 6px rgba(200, 200, 200, 0.6);
+}
+
+/* 動畫 */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* 📱 手機自適應 */
+@media (max-width: 768px) {
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    nav a {
+        margin: 8px;
+        font-size: 1em;
+    }
+
+    .hero h1 {
+        font-size: 1.8em;
+    }
+
+    .hero p {
+        font-size: 1em;
+    }
 }
