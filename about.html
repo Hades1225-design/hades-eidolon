@@ -22,8 +22,10 @@ document.addEventListener("DOMContentLoaded", () => {
         // 隨機位置、大小、延遲、動畫時間
         dot.style.left = `${Math.random() * 100}%`;
         dot.style.width = dot.style.height = `${Math.random() * 6 + 3}px`; // 3~9px
-        dot.style.animationDuration = `${Math.random() * 10 + 12}s`; // 8~18s
-        dot.style.animationDelay = `${Math.random() * 10}s`;
+        // 上升時間 & 延遲
+        dot.style.animationDuration = `${Math.random() * 10 + 13}s, ${Math.random() * 6 + 6}s`;
+        // 上升延遲
+        dot.style.animationDelay = `${Math.random() * 10}s, ${Math.random() * 4}s`;
 
         bg.appendChild(dot);
     }
