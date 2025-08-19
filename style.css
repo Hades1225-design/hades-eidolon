@@ -24,7 +24,8 @@ body {
     position: absolute;
     top: 0; left: 0; right: 0; bottom: 0;
     overflow: hidden;
-    z-index: 0;
+    z-index: 0;              /* 放到最底層 */
+    pointer-events: none;    /* 讓滑鼠點擊可以穿透 */
 }
 
 /* 光點 */
@@ -64,6 +65,11 @@ body {
     100% { transform: translateY(-10vh) translateX(20px); opacity: 0; }
 }
 
+/* 確保主要內容在上層 */
+header, main, footer {
+    position: relative;
+    z-index: 1;
+}
 /* Header */
 header {
     padding: 20px;
