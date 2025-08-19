@@ -29,6 +29,11 @@ header img {
     width: 100%;
 }
 
+main img {
+    max-width: 800px;
+    width: 100%;
+}
+
 nav {
     margin-top: 20px;
 }
