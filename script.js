@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const bg = document.querySelector(".bg");
-    const dotCount = 10;
+    const dotCount = 20;
 
     for (let i = 0; i < dotCount; i++) {
         const dot = document.createElement("div");
