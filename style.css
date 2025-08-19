@@ -29,11 +29,17 @@ header img {
     width: 100%;
 }
 
+/* Main 區塊圖片 */
 main img {
-    max-width: 450px;
-    width: 100%;
+    max-width: 450px;  /* 桌機最大 450px */
+    width: 100%;       /* 保持自適應 */
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    border-radius: 6px; /* 可選，讓圖片邊角更柔和 */
 }
 
+/* 導覽列 */
 nav {
     margin-top: 20px;
 }
@@ -110,6 +116,10 @@ footer:hover {
 
     .hero p {
         font-size: 1em;
+    }
+
+    main img {
+        max-width: 280px; /* 手機自動縮小 */
     }
 }
 
