@@ -9,14 +9,27 @@
 <body>
     
     <!-- 光點背景 -->
-    <div class="bg">
-        <div class="dot" style="left:10%; animation-delay:0s;"></div>
-        <div class="dot" style="left:30%; animation-delay:2s;"></div>
-        <div class="dot" style="left:50%; animation-delay:4s;"></div>
-        <div class="dot" style="left:70%; animation-delay:6s;"></div>
-        <div class="dot" style="left:90%; animation-delay:8s;"></div>
-    </div>
-    
+<div class="bg"></div>
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const bg = document.querySelector(".bg");
+    const dotCount = 30; // 光點數量
+
+    for (let i = 0; i < dotCount; i++) {
+        const dot = document.createElement("div");
+        dot.classList.add("dot");
+
+        // 隨機位置、大小、延遲、動畫時間
+        dot.style.left = `${Math.random() * 100}%`;
+        dot.style.width = dot.style.height = `${Math.random() * 6 + 3}px`; // 3~9px
+        dot.style.animationDuration = `${Math.random() * 10 + 8}s`; // 8~18s
+        dot.style.animationDelay = `${Math.random() * 10}s`;
+
+        bg.appendChild(dot);
+    }
+});
+</script>
     <header>
         <img src="logo.png" alt="HadesEidolon Logo">
         <nav>
