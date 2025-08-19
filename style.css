@@ -1,144 +1,42 @@
-/* 全域設定 */
-body {
-    margin: 0;
-    background: linear-gradient(135deg, #0A0A0A, #1C1C1C, #2C2C2C, #0A0A0A);
-    background-size: 400% 400%;
-    animation: gradientShift 20s ease infinite;
-    color: #C0C0C0;
-    font-family: "PingFang TC", "Noto Sans TC", sans-serif;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    min-height: 100vh;
-}
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HadesEidolon - Home</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="HadesEidolon Logo">
+        <nav>
+            <a href="index.html">首頁</a>
+            <a href="about.html">關於</a>
+            <a href="projects.html">計劃</a>
+            <a href="journal.html">日誌</a>
+            <a href="showcase.html">展示</a>
+            <a href="contact.html">聯繫</a>
+        </nav>
+    </header>
 
-@keyframes gradientShift {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
+    <main>
+        <section class="hero">
+            <img src="slogenlogo.png" alt="HadesEidolon Logo">
+            <h1>來自深淵，幻影不息</h1>
+            <p>HadesEidolon — 黑銀幻影計劃的起點</p>
+        </section>
+    </main>
 
-/* Header */
-header {
-    padding: 20px;
-}
-
-header img {
-    max-width: 250px;
-    width: 100%;
-}
-
-/* Main 區塊圖片 */
-main img {
-    max-width: 450px;  /* 桌機最大 450px */
-    width: 100%;       /* 保持自適應 */
-    height: auto;
-    margin: 20px auto;
-    display: block;
-    border-radius: 6px; /* 可選，讓圖片邊角更柔和 */
-}
-
-/* 導覽列 */
-nav {
-    margin-top: 20px;
-}
-
-nav a {
-    color: silver;
-    margin: 0 15px;
-    text-decoration: none;
-    font-size: 1.2em;
-    transition: color 0.3s, text-shadow 0.3s;
-}
-
-nav a:hover {
-    color: #ffffff;
-    text-shadow: 0 0 8px rgba(192, 192, 192, 0.8),
-                 0 0 12px rgba(255, 255, 255, 0.6);
-}
-
-/* Hero 區塊 */
-.hero {
-    text-align: center;
-    margin-top: 12vh;
-    animation: fadeIn 2s ease-in-out;
-}
-
-.hero h1 {
-    font-size: 2.5em;
-    color: silver;
-    text-shadow: 0 0 10px rgba(192,192,192,0.6);
-}
-
-.hero p {
-    font-size: 1.2em;
-    margin-top: 15px;
-    color: #aaa;
-    letter-spacing: 2px;
-}
-
-/* Footer */
-footer {
-    padding: 10px;
-    font-size: 0.9em;
-    color: #555;
-    transition: text-shadow 0.3s;
-}
-
-footer:hover {
-    color: #888;
-    text-shadow: 0 0 6px rgba(200, 200, 200, 0.6);
-}
-
-/* 動畫 */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* 📱 手機自適應 */
-@media (max-width: 768px) {
-    nav {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-    }
-
-    nav a {
-        margin: 8px;
-        font-size: 1em;
-    }
-
-    .hero h1 {
-        font-size: 1.8em;
-    }
-
-    .hero p {
-        font-size: 1em;
-    }
-
-    main img {
-        max-width: 280px; /* 手機自動縮小 */
-    }
-}
-
-/* About Page */
-.about-content {
-    max-width: 600px;
-    margin: 50px auto;
-    text-align: left;
-    line-height: 1.8;
-    padding: 0 20px;
-}
-
-.about-content h2 {
-    color: silver;
-    margin-top: 30px;
-    text-shadow: 0 0 8px rgba(192,192,192,0.5);
-}
-
-.about-content p {
-    color: #bbb;
-    margin-top: 10px;
-}
+    <footer>© 2025 HadesEidolon</footer>
+    
+    <script>
+    window.addEventListener("scroll", function() {
+        if (window.scrollY > 50) {
+            document.body.classList.add("scrolled");
+        } else {
+            document.body.classList.remove("scrolled");
+        }
+    });
+    </script>
+</body>
+</html>
