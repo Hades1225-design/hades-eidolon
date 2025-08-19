@@ -115,7 +115,7 @@ footer:hover {
 
 /* About Page */
 .about-content {
-    max-width: 800px;
+    max-width: 600px;
     margin: 50px auto;
     text-align: left;
     line-height: 1.8;
@@ -129,7 +129,6 @@ footer:hover {
 }
 
 .about-content p {
-    max-width: 800px;
     color: #bbb;
     margin-top: 10px;
 }
