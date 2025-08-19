@@ -20,13 +20,4 @@ document.addEventListener("DOMContentLoaded", () => {
             bg.appendChild(dot);
         }
     }
-
-    // === 捲動效果（加上 scrolled class） ===
-    window.addEventListener("scroll", () => {
-        if (window.scrollY > 50) {
-            document.body.classList.add("scrolled");
-        } else {
-            document.body.classList.remove("scrolled");
-        }
-    });
 });
