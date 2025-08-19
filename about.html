@@ -1,112 +1,48 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <title>關於我｜HadesEidolon</title>
-  <meta name="color-scheme" content="dark">
-  <style>
-    body{
-      margin:0;
-      background:#0b0b10;
-      color:#e6e7eb;
-      font-family:-apple-system,BlinkMacSystemFont,"PingFang TC","Segoe UI",Roboto,Helvetica,Arial,"Noto Sans TC",sans-serif;
-      line-height:1.8;
-      letter-spacing:.25px;
-      overflow-x:hidden;
-    }
-    .wrap{position:relative;z-index:2;max-width:880px;margin:0 auto;padding:64px 20px 100px}
-    h1,h2{font-weight:700;margin:1.2em 0 .5em;}
-    h1{font-size:44px;text-align:center;color:#cfd4dc}
-    h2{font-size:26px;color:#bfc6d1}
-    .slogan{text-align:center;font-size:18px;color:#a7adb7;margin-top:6px}
-    p{margin:.6em 0;color:#e6e7eb}
-    .muted{color:#a7adb7}
-    .divider{height:1px;background:#272a33;margin:48px 0}
-    footer{margin-top:64px;font-size:13px;color:#777;text-align:center}
-    /* 小互動 */
-    p:hover{color:#ffffff;transition:.3s}
-
-    /* --- 幻影背景光點 --- */
-    .bg{
-      position:fixed;
-      top:0;left:0;width:100%;height:100%;
-      overflow:hidden;
-      z-index:1;
-    }
-    .dot{
-      position:absolute;
-      width:3px;height:3px;
-      background:#cfd4dc;
-      border-radius:50%;
-      opacity:0.4;
-      animation: float 18s linear infinite;
-    }
-    @keyframes float{
-      0%{transform:translateY(0) translateX(0);opacity:0;}
-      20%{opacity:0.6;}
-      80%{opacity:0.6;}
-      100%{transform:translateY(-120vh) translateX(30px);opacity:0;}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HadesEidolon - 關於我</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- 背景光點 -->
-  <div class="bg">
-    <!-- 多個光點 -->
-    <div class="dot" style="left:10%;animation-delay:0s;"></div>
-    <div class="dot" style="left:25%;animation-delay:4s;"></div>
-    <div class="dot" style="left:40%;animation-delay:8s;"></div>
-    <div class="dot" style="left:55%;animation-delay:2s;"></div>
-    <div class="dot" style="left:70%;animation-delay:6s;"></div>
-    <div class="dot" style="left:85%;animation-delay:10s;"></div>
-  </div>
+    <!-- 光點背景 -->
+    <div class="bg">
+        <div class="dot" style="left:10%; animation-delay:0s;"></div>
+        <div class="dot" style="left:25%; animation-delay:2s;"></div>
+        <div class="dot" style="left:40%; animation-delay:4s;"></div>
+        <div class="dot" style="left:65%; animation-delay:6s;"></div>
+        <div class="dot" style="left:85%; animation-delay:8s;"></div>
+    </div>
 
-  <!-- 主要內容 -->
-  <div class="wrap">
-    <h1>關於我</h1>
-    <div class="slogan">來自深淵，幻影不息</div>
+    <header>
+        <img src="logo.png" alt="HadesEidolon Logo">
+        <nav>
+            <a href="index.html">首頁</a>
+            <a href="about.html">關於</a>
+            <a href="projects.html">計劃</a>
+            <a href="journal.html">日誌</a>
+            <a href="showcase.html">展示</a>
+            <a href="contact.html">聯繫</a>
+        </nav>
+    </header>
 
-    <div class="divider"></div>
+    <main>
+        <section>
+            <h1>關於我</h1>
+            <p>
+                HadesEidolon 代表著「深淵」與「幻影」的交錯。  
+                這裡不僅是個人創作與實驗的容器，更是將技術、藝術與思考編織在一起的空間。  
+            </p>
+            <p>
+                我的追求並非短暫的火花，而是能持續推進、能留下痕跡的探索。  
+                無論是系統設計、創意專案，還是日常靈感，  
+                都會在這裡被記錄、被打磨，最終匯聚成獨特的軌跡。
+            </p>
+        </section>
+    </main>
 
-    <h2>深淵的起點</h2>
-    <p>
-      我選擇以「Hades」自稱，不是因為黑暗，而是因為深度。  
-      光能照亮表面，但深淵能映照出方向。  
-      我的旅程不是向上，而是向內：  
-      理解系統，拆解未知，重構答案。
-    </p>
-
-    <h2>幻影的本質</h2>
-    <p>
-      「Eidolon」代表幻影。  
-      它提醒我，世上所有完成品，最初都只是概念的投影。  
-      我習慣把想法抽象化，再把它具體化，  
-      讓每一步都能被驗證、被迭代。
-    </p>
-
-    <h2>現在的軌跡</h2>
-    <p>
-      我在生活裡編寫系統：  
-      黑蘋果的構建、牆面的油漆、機殼的散熱設計，  
-      它們看似分散，卻都來自同一種衝動——  
-      <span class="muted">把混亂化為秩序，讓想法有形。</span>
-    </p>
-
-    <h2>未來的幻影</h2>
-    <p>
-      我的目標不只是完成專案，而是建立節奏。  
-      迭代比一次到位更重要。  
-      未來我將創作小說與腳本，  
-      也將持續推進「AI 管家」計劃，  
-      讓機器不只是工具，而是共學的夥伴。
-    </p>
-
-    <div class="divider"></div>
-
-    <footer>
-      © HadesEidolon — 此處不是終點，而是持續更新的起點。
-    </footer>
-  </div>
+    <footer>© 2025 HadesEidolon</footer>
 </body>
 </html>
