@@ -8,29 +8,8 @@
 </head>
 <body>
     <!-- 光點背景 -->
-<div class="bg"></div>
-
-<script>
-document.addEventListener("DOMContentLoaded", () => {
-    const bg = document.querySelector(".bg");
-    const dotCount = 5; // 光點數量
-
-    for (let i = 0; i < dotCount; i++) {
-        const dot = document.createElement("div");
-        dot.classList.add("dot");
-
-        // 隨機位置、大小、延遲、動畫時間
-        dot.style.left = `${Math.random() * 100}%`;
-        dot.style.width = dot.style.height = `${Math.random() * 6 + 3}px`; // 3~9px
-        // 上升時間 & 延遲
-        dot.style.animationDuration = `${Math.random() * 10 + 13}s, ${Math.random() * 6 + 6}s`;
-        // 上升延遲
-        dot.style.animationDelay = `${Math.random() * 10}s, ${Math.random() * 4}s`;
-
-        bg.appendChild(dot);
-    }
-});
-</script>
+    <div class="bg"></div>
+    <script src="script.js"></script>
     <header>
         <img src="logo.png" alt="HadesEidolon Logo">
         <nav>
