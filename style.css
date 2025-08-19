@@ -19,49 +19,31 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* 光點背景容器 */
-.bg {
-    position: absolute;
-    top: 0; left: 0; right: 0; bottom: 0;
-    overflow: hidden;
+/* ✨ 背景光點效果 */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background: radial-gradient(circle, rgba(255,255,255,0.15) 2px, transparent 3px);
+    background-size: 80px 80px;
+    animation: floatDots 30s linear infinite;
     z-index: 0;
+    opacity: 0.4; /* 調整透明度 */
 }
 
-/* 光點 */
-.dot {
-    position: absolute;
-    border-radius: 50%;
-    animation: float 15s linear infinite;
-    opacity: 0.4;
-    background: radial-gradient(circle, rgba(255,255,255,0.8) 0%, rgba(255,255,255,0) 70%);
+@keyframes floatDots {
+    from { background-position: 0 0; }
+    to { background-position: 400px 400px; }
 }
 
-/* 光暈顏色變化 */
-.dot:nth-child(3n) {
-    background: radial-gradient(circle, rgba(180,200,255,0.9) 0%, rgba(180,200,255,0) 70%); /* 銀藍 */
-}
-.dot:nth-child(5n) {
-    background: radial-gradient(circle, rgba(200,180,255,0.9) 0%, rgba(200,180,255,0) 70%); /* 銀紫 */
-}
-.dot:nth-child(7n) {
-    background: radial-gradient(circle, rgba(255,220,200,0.8) 0%, rgba(255,220,200,0) 70%); /* 微暖光 */
-}
-
-/* 光點大小隨機 */
-.dot:nth-child(1n) { width: 2px; height: 2px; }
-.dot:nth-child(2n) { width: 3px; height: 3px; }
-.dot:nth-child(3n) { width: 4px; height: 4px; }
-.dot:nth-child(4n) { width: 5px; height: 5px; }
-
-/* 光點透明度 */
-.dot:nth-child(odd) { opacity: 0.3; }
-.dot:nth-child(even) { opacity: 0.6; }
-
-/* 飄浮動畫：上下 + 左右漂移 */
-@keyframes float {
-    0%   { transform: translateY(100vh) translateX(0); opacity: 0.8; }
-    50%  { transform: translateY(50vh) translateX(-20px); opacity: 0.5; }
-    100% { transform: translateY(-10vh) translateX(20px); opacity: 0; }
+/* 確保內容在光點上層 */
+header, main, footer {
+    position: relative;
+    z-index: 1;
 }
 
 /* Header */
