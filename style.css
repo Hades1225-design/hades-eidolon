@@ -65,6 +65,11 @@ body {
       0%, 100% { opacity: 1; transform: scale(1); }
       50%      { opacity: 0.3; transform: scale(0.6); }
     }
+    
+    @keyframes fadeOut {
+        from { opacity: 1; }
+        to   { opacity: 0; }
+    }
 
 /* 確保主要內容在上層 */
 header, main, footer {
