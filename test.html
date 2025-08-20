@@ -3,15 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>光點 Debug 測試</title>
+  <title>銀白藍光點測試</title>
   <style>
     body {
       margin: 0;
       background: black;
+      height: 100vh;
       overflow: hidden;
     }
 
-    /* 光點背景容器 */
     .bg {
       position: fixed;
       top: 0;
@@ -20,62 +20,91 @@
       height: 100%;
       z-index: 0;
       pointer-events: none;
-      background: black;
     }
 
     .dot-wrapper {
-  position: absolute;
-  bottom: 0;
-  animation: floatUp 12s linear infinite;
-}
+      position: absolute;
+      bottom: -20px;
+      animation: floatUp var(--rise, 12s) linear forwards;
+    }
 
-.dot {
-  width: 8px;
-  height: 8px;
-  background: white;
-  border-radius: 50%;
-  animation: sway 6s ease-in-out infinite, flicker 3s ease-in-out infinite;
-}
+    .dot {
+      width: var(--size, 8px);
+      height: var(--size, 8px);
+      border-radius: 50%;
+      animation: sway var(--sway, 6s) ease-in-out infinite,
+                 flicker var(--flicker, 3s) ease-in-out infinite;
+    }
 
-/* 垂直上升 */
-@keyframes floatUp {
-  from { transform: translateY(0); opacity: 1; }
-  to   { transform: translateY(-110vh); opacity: 0; }
-}
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to   { transform: translateY(-110vh); opacity: 0; }
+    }
 
-/* 左右擺動 */
-@keyframes sway {
-  0%   { transform: translateX(0); }
-  50%  { transform: translateX(15px); }
-  100% { transform: translateX(0); }
-}
+    @keyframes sway {
+      0%   { transform: translateX(0); }
+      50%  { transform: translateX(15px); }
+      100% { transform: translateX(0); }
+    }
 
-/* 閃爍 */
-@keyframes flicker {
-  0%, 100% { opacity: 1; }
-  50%      { opacity: 0.3; }
-}
+    /* 閃爍 + 大小變化 */
+    @keyframes flicker {
+      0%, 100% { opacity: 1; transform: scale(1); }
+      50%      { opacity: 0.3; transform: scale(0.6); }
+    }
   </style>
 </head>
 <body>
-  <div class="dot-wrapper" style="left:20%">
-    <div class="dot"></div>
-  </div>
+  <div class="bg"></div>
+
   <script>
     document.addEventListener("DOMContentLoaded", () => {
       const bg = document.querySelector(".bg");
-      console.log("找到 .bg ?", bg); // ✅ Debug 確認是否找到容器
-      const dotCount = 5; // 先測試 5 個
 
-      for (let i = 0; i < dotCount; i++) {
+      // 星點顏色（銀白 + 淡藍）
+      const colors = [
+        "rgba(255,255,255,0.9)",   // 白
+        "rgba(192,192,192,0.8)",  // 銀白
+        "rgba(173,216,230,0.8)"   // 淡藍 (LightBlue)
+      ];
+
+      function createDot() {
+        const wrapper = document.createElement("div");
+        wrapper.classList.add("dot-wrapper");
+
+        // 隨機水平位置
+        wrapper.style.left = `${Math.random() * 100}%`;
+
+        // 隨機上升速度
+        const riseDuration = Math.random() * 10 + 10; // 10~20s
+        wrapper.style.setProperty("--rise", `${riseDuration}s`);
+
         const dot = document.createElement("div");
         dot.classList.add("dot");
 
-        // 隨機水平位置
-        dot.style.left = `${Math.random() * 100}%`;
+        // 隨機大小、擺動、閃爍
+        dot.style.setProperty("--size", `${Math.random() * 6 + 4}px`);
+        dot.style.setProperty("--sway", `${Math.random() * 6 + 4}s`);
+        dot.style.setProperty("--flicker", `${Math.random() * 3 + 2}s`);
 
-        bg.appendChild(dot);
-        console.log("生成 dot:", dot); // ✅ Debug 看有沒有真的 append
+        // 隨機顏色
+        dot.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+        wrapper.appendChild(dot);
+        bg.appendChild(wrapper);
+
+        // 動畫結束後移除
+        setTimeout(() => {
+          wrapper.remove();
+        }, riseDuration * 1000);
+      }
+
+      // 每 500ms 生成一顆光點
+      setInterval(createDot, 500);
+
+      // 初始生成幾顆，避免一開始太空
+      for (let i = 0; i < 10; i++) {
+        setTimeout(createDot, i * 200);
       }
     });
   </script>
