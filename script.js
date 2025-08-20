@@ -10,26 +10,26 @@ document.addEventListener("DOMContentLoaded", () => {
       ];
 
       function createDot() {
-        const wrapper = document.createElement("div");
-        wrapper.classList.add("dot-wrapper");
-        wrapper.style.left = `${Math.random() * 100}%`;
+    const wrapper = document.createElement("div");
+    wrapper.classList.add("dot-wrapper");
+    wrapper.style.left = `${Math.random() * 100}%`;
 
-        const riseDuration = Math.random() * 10 + 10; // 10~20s
-        wrapper.style.setProperty("--rise", `${riseDuration}s`);
+    const riseDuration = Math.random() * 10 + 10; // 10~20s
+    wrapper.style.setProperty("--rise", `${riseDuration}s`);
 
-        const dot = document.createElement("div");
-        dot.classList.add("dot");
-        dot.style.setProperty("--size", `${Math.random() * 6 + 4}px`);
-        dot.style.setProperty("--sway", `${Math.random() * 6 + 4}s`);
-        dot.style.setProperty("--swayRange", `${Math.random() * 20 + 10}px`);
-        dot.style.setProperty("--flicker", `${Math.random() * 3 + 2}s`);
-        dot.style.background = colors[Math.floor(Math.random() * colors.length)];
+    const dot = document.createElement("div");
+    dot.classList.add("dot");
+    dot.style.setProperty("--size", `${Math.random() * 6 + 4}px`);
+    dot.style.setProperty("--sway", `${Math.random() * 6 + 4}s`);
+    dot.style.setProperty("--flicker", `${Math.random() * 3 + 2}s`);
 
-        wrapper.appendChild(dot);
-        bg.appendChild(wrapper);
+    wrapper.appendChild(dot);
+    bg.appendChild(wrapper);
 
-        setTimeout(() => wrapper.remove(), riseDuration * 1000);
-      }
+    // 🎲 設定隨機存活時間（比 riseDuration 短）
+    const lifetime = Math.random() * (riseDuration * 0.7) + riseDuration * 0.3; 
+    setTimeout(() => wrapper.remove(), lifetime * 1000);
+}
 
       setInterval(createDot, 2500);
       for (let i = 0; i < 10; i++) setTimeout(createDot, i * 200);
