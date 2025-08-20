@@ -22,12 +22,14 @@
       pointer-events: none;
     }
 
+    /* 外層：只負責垂直上升 */
     .dot-wrapper {
       position: absolute;
       bottom: -20px;
       animation: floatUp var(--rise, 12s) linear forwards;
     }
 
+    /* 內層：負責左右擺動 + 閃爍 */
     .dot {
       width: var(--size, 8px);
       height: var(--size, 8px);
@@ -36,11 +38,13 @@
                  flicker var(--flicker, 3s) ease-in-out infinite;
     }
 
+    /* 垂直上升 */
     @keyframes floatUp {
       from { transform: translateY(0); opacity: 1; }
       to   { transform: translateY(-110vh); opacity: 0; }
     }
 
+    /* 左右擺動 */
     @keyframes sway {
       0%   { transform: translateX(0); }
       50%  { transform: translateX(15px); }
@@ -61,51 +65,35 @@
     document.addEventListener("DOMContentLoaded", () => {
       const bg = document.querySelector(".bg");
 
-      // 星點顏色（銀白 + 淡藍）
       const colors = [
         "rgba(255,255,255,0.9)",   // 白
         "rgba(192,192,192,0.8)",  // 銀白
-        "rgba(173,216,230,0.8)"   // 淡藍 (LightBlue)
+        "rgba(173,216,230,0.8)"   // 淡藍
       ];
 
       function createDot() {
         const wrapper = document.createElement("div");
         wrapper.classList.add("dot-wrapper");
-
-        // 隨機水平位置
         wrapper.style.left = `${Math.random() * 100}%`;
 
-        // 隨機上升速度
         const riseDuration = Math.random() * 10 + 10; // 10~20s
         wrapper.style.setProperty("--rise", `${riseDuration}s`);
 
         const dot = document.createElement("div");
         dot.classList.add("dot");
-
-        // 隨機大小、擺動、閃爍
         dot.style.setProperty("--size", `${Math.random() * 6 + 4}px`);
         dot.style.setProperty("--sway", `${Math.random() * 6 + 4}s`);
         dot.style.setProperty("--flicker", `${Math.random() * 3 + 2}s`);
-
-        // 隨機顏色
         dot.style.background = colors[Math.floor(Math.random() * colors.length)];
 
         wrapper.appendChild(dot);
         bg.appendChild(wrapper);
 
-        // 動畫結束後移除
-        setTimeout(() => {
-          wrapper.remove();
-        }, riseDuration * 1000);
+        setTimeout(() => wrapper.remove(), riseDuration * 1000);
       }
 
-      // 每 500ms 生成一顆光點
       setInterval(createDot, 500);
-
-      // 初始生成幾顆，避免一開始太空
-      for (let i = 0; i < 10; i++) {
-        setTimeout(createDot, i * 200);
-      }
+      for (let i = 0; i < 10; i++) setTimeout(createDot, i * 200);
     });
   </script>
 </body>
