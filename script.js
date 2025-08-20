@@ -30,7 +30,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => wrapper.remove(), riseDuration * 1000);
       }
 
-      setInterval(createDot, 1250);
+      setInterval(createDot, 2500);
       for (let i = 0; i < 10; i++) setTimeout(createDot, i * 200);
 
     // === 滾動時 body 加入 scrolled 樣式 ===
