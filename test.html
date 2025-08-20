@@ -29,7 +29,13 @@
   width: 8px;
   height: 8px;
   background: white;
-  border-radius: 50%; /* 變成圓點 */
+  border-radius: 50%;
+  animation: floatUp 12s linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 1; }
+  to   { transform: translateY(-110vh); opacity: 0; }
 }
   </style>
 </head>
