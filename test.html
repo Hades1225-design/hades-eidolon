@@ -23,14 +23,37 @@
       background: black;
     }
 
-    .dot {
+    .dot-wrapper {
   position: absolute;
   bottom: 0;
+  animation: floatUp 12s linear infinite;
+}
+
+.dot {
   width: 8px;
   height: 8px;
   background: white;
   border-radius: 50%;
-  animation: floatUp 12s linear infinite;
+  animation: sway 6s ease-in-out infinite, flicker 3s ease-in-out infinite;
+}
+
+/* 垂直上升 */
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 1; }
+  to   { transform: translateY(-110vh); opacity: 0; }
+}
+
+/* 左右擺動 */
+@keyframes sway {
+  0%   { transform: translateX(0); }
+  50%  { transform: translateX(15px); }
+  100% { transform: translateX(0); }
+}
+
+/* 閃爍 */
+@keyframes flicker {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0.3; }
 }
 
 @keyframes floatUp {
