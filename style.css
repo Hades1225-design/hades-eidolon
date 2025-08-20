@@ -20,7 +20,7 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-/* 光點背景容器 */
+/* === 光點背景 === */
 .bg {
     position: fixed;
     top: 0;
@@ -35,6 +35,11 @@ body {
 .dot {
     position: absolute;
     bottom: -20px;
+}
+
+.dot::before {
+    content: '';
+    display: block;
     width: var(--size, 6px);
     height: var(--size, 6px);
     background: rgba(255, 255, 255, 0.7);
@@ -45,6 +50,7 @@ body {
         flicker var(--flicker, 3s) ease-in-out infinite;
 }
 
+/* 光點動畫 */
 @keyframes floatUp {
     from { transform: translateY(0); opacity: 0.8; }
     to   { transform: translateY(-110vh); opacity: 0; }
@@ -67,7 +73,7 @@ header, main, footer {
     z-index: 1;
 }
 
-/* Header */
+/* === Header === */
 header {
     padding: 20px;
 }
@@ -104,7 +110,7 @@ nav a.active {
     padding-bottom: 3px;
 }
 
-/* Hero 區塊 */
+/* === Hero 區塊 === */
 .hero {
     text-align: center;
     margin-top: 12vh;
@@ -130,7 +136,7 @@ nav a.active {
     letter-spacing: 2px;
 }
 
-/* Footer */
+/* === Footer === */
 footer {
     padding: 10px;
     font-size: 0.9em;
@@ -148,7 +154,7 @@ footer:hover {
     to   { opacity: 1; transform: translateY(0); }
 }
 
-/* 📱 手機自適應 */
+/* === 手機自適應 === */
 @media (max-width: 768px) {
     nav {
         display: flex;
@@ -170,7 +176,7 @@ footer:hover {
     }
 }
 
-/* About Page */
+/* === About Page === */
 .about-content {
     max-width: 600px;
     margin: 50px auto;
