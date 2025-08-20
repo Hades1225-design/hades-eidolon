@@ -56,7 +56,7 @@ body {
     /* 左右擺動 */
     @keyframes sway {
       0%   { transform: translateX(0); }
-      50%  { transform: translateX(15px); }
+      50%  { transform: translateX(25px); }
       100% { transform: translateX(0); }
     }
 
