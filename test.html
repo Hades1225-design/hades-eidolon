@@ -1,81 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-Hant">
 <head>
-  <meta charset="UTF-8">
-  <title>光點測試</title>
-  <style>
-    body {
-      margin: 0;
-      background: #000;
-      overflow: hidden;
-      height: 100vh;
-    }
-
-    .bg {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      z-index: 0;
-      pointer-events: none;
-    }
-
-    .dot {
-      position: absolute;
-      bottom: -20px;
-      width: var(--size, 6px);
-      height: var(--size, 6px);
-      background: rgba(255, 255, 255, 0.7);
-      border-radius: 50%;
-      animation: 
-        floatUp var(--rise, 12s) linear infinite,
-        sway var(--sway, 6s) ease-in-out infinite,
-        flicker var(--flicker, 3s) ease-in-out infinite;
-    }
-
-    @keyframes floatUp {
-      from { transform: translateY(0); opacity: 0.8; }
-      to   { transform: translateY(-110vh); opacity: 0; }
-    }
-
-    @keyframes sway {
-      0%   { transform: translateX(0); }
-      50%  { transform: translateX(15px); }
-      100% { transform: translateX(0); }
-    }
-
-    @keyframes flicker {
-      0%, 100% { opacity: 0.8; }
-      50%      { opacity: 0.3; }
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>光點測試</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="bg"></div>
-
-  <script>
-    document.addEventListener("DOMContentLoaded", () => {
-      const bg = document.querySelector(".bg");
-      const dotCount = 50; // 測試時加大數量
-
-      for (let i = 0; i < dotCount; i++) {
-        const dot = document.createElement("div");
-        dot.classList.add("dot");
-
-        // 隨機水平位置
-        dot.style.left = `${Math.random() * 100}%`;
-
-        // 隨機大小、速度、擺動、閃爍
-        dot.style.setProperty("--size", `${Math.random() * 6 + 3}px`);
-        dot.style.setProperty("--rise", `${Math.random() * 10 + 12}s`);
-        dot.style.setProperty("--sway", `${Math.random() * 6 + 6}s`);
-        dot.style.setProperty("--flicker", `${Math.random() * 3 + 2}s`);
-
-        bg.appendChild(dot);
-      }
-    });
-  </script>
+    <div class="bg"></div>
+    <script src="script.js"></script>
 </body>
 </html>
