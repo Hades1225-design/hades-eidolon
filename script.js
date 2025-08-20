@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
         dot.classList.add("dot");
         dot.style.setProperty("--size", `${Math.random() * 6 + 4}px`);
         dot.style.setProperty("--sway", `${Math.random() * 6 + 4}s`);
+        dot.style.setProperty("--swayRange", `${Math.random() * 20 + 10}px`);
         dot.style.setProperty("--flicker", `${Math.random() * 3 + 2}s`);
         dot.style.background = colors[Math.floor(Math.random() * colors.length)];
 
