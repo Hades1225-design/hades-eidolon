@@ -1,27 +1,37 @@
 // script.js
 
 document.addEventListener("DOMContentLoaded", () => {
-    // === 光點背景生成 ===
-    const bg = document.querySelector(".bg");
-    if (bg) {
-        const dotCount = 15; // 光點數量
+      const bg = document.querySelector(".bg");
 
-        for (let i = 0; i < dotCount; i++) {
-            const dot = document.createElement("div");
-            dot.classList.add("dot");
+      const colors = [
+        "rgba(255,255,255,0.9)",   // 白
+        "rgba(192,192,192,0.8)",  // 銀白
+        "rgba(173,216,230,0.8)"   // 淡藍
+      ];
 
-            // 隨機水平位置
-            dot.style.left = `${Math.random() * 100}%`;
+      function createDot() {
+        const wrapper = document.createElement("div");
+        wrapper.classList.add("dot-wrapper");
+        wrapper.style.left = `${Math.random() * 100}%`;
 
-            // 隨機大小、上升速度、左右擺動、閃爍速度
-            dot.style.setProperty("--size", `${Math.random() * 6 + 3}px`);
-            dot.style.setProperty("--rise", `${Math.random() * 10 + 12}s`);
-            dot.style.setProperty("--sway", `${Math.random() * 6 + 6}s`);
-            dot.style.setProperty("--flicker", `${Math.random() * 3 + 2}s`);
+        const riseDuration = Math.random() * 10 + 10; // 10~20s
+        wrapper.style.setProperty("--rise", `${riseDuration}s`);
 
-            bg.appendChild(dot);
-        }
-    }
+        const dot = document.createElement("div");
+        dot.classList.add("dot");
+        dot.style.setProperty("--size", `${Math.random() * 6 + 4}px`);
+        dot.style.setProperty("--sway", `${Math.random() * 6 + 4}s`);
+        dot.style.setProperty("--flicker", `${Math.random() * 3 + 2}s`);
+        dot.style.background = colors[Math.floor(Math.random() * colors.length)];
+
+        wrapper.appendChild(dot);
+        bg.appendChild(wrapper);
+
+        setTimeout(() => wrapper.remove(), riseDuration * 1000);
+      }
+
+      setInterval(createDot, 500);
+      for (let i = 0; i < 10; i++) setTimeout(createDot, i * 200);
 
     // === 滾動時 body 加入 scrolled 樣式 ===
     window.addEventListener("scroll", () => {
