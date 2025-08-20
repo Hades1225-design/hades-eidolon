@@ -43,7 +43,7 @@ body {
       width: var(--size, 8px);
       height: var(--size, 8px);
       border-radius: 50%;
-      animation: sway var(--sway, 6s) ease-in-out infinite,
+      animation: sway var(--sway, 4s) ease-in-out infinite,
                  flicker var(--flicker, 3s) ease-in-out infinite;
     }
 
